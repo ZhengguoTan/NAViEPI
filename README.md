@@ -6,5 +6,4 @@ Demonstration on Joint k-q-slice rEconsTruction framework for Shift-encoded (JET
 
 MR-Pub III Competition for the Development of Interactive Open-source Code Demos
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/demo_jets_diffusion_mri_7t/blob/main/demo_jets_diffusion_mri_7t_llr.ipynb)
-
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZhengguoTan/demo_jets_diffusion_mri_7t/blob/main/demo_jets_diffusion_mri_7t_llr.ipynb)
