@@ -16,4 +16,27 @@ MR-Pub III Competition for the Development of Interactive Open-source Code Demos
 
 * Data:
 
-    [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7989635.svg)](https://doi.org/10.5281/zenodo.8164048)
+    [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8164048.svg)](https://doi.org/10.5281/zenodo.8164048)
+
+
+## References
+
+If you find the open-source codes/data useful, please cite:
+
+* plain text:
+
+
+
+* bibtex:
+
+    ```bibtex
+    @Article{tan_2023_diff7t,
+        Title     = {{Accelerated Diffusion Weighted Magnetic Resonance Imaging at 7 T: Joint Reconstruction for Shift-Encoded Navigator-based Interleaved Echo Planar Imaging (JETS-NAViEPI)}},
+        Author    = {Tan, Zhengguo and Liebig, Patrick A and Heidemann, Robin M and Laun, Frederik B and Knoll, Florian},
+        Journal   = {Imaging Neuroscience},
+        Year      = {2023},
+        Volume    = {},
+        Pages     = {},
+        doi       = {}
+    }
+    ```
