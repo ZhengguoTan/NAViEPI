@@ -6,10 +6,14 @@ Demonstration on Joint k-q-slice rEconsTruction framework for Shift-encoded (JET
 
 MR-Pub III Competition for the Development of Interactive Open-source Code Demos
 
-* Interactive code demo:
+* Interactive code demo on JETS reconstruction:
 
     [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZhengguoTan/demo_jets_diffusion_mri_7t/blob/main/demo_jets_diffusion_mri_7t_llr.ipynb)
 
+* Ineractive code demo on LLR regularization:
+
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZhengguoTan/demo_jets_diffusion_mri_7t/blob/main/demo_llr.ipynb)
+
 * Data:
 
-    [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7989635.svg)](https://doi.org/10.5281/zenodo.7989635)
+    [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7989635.svg)](https://doi.org/10.5281/zenodo.8164048)
