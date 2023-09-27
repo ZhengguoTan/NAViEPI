@@ -33,8 +33,8 @@ parser.add_argument('--data',
                     default='meas_MID00062_FID00601_Seg5Nav_0p5in_plane_3Scan.dat',
                     help='raw dat file.')
 
-parser.add_argument('--remove_os', action='store_true',
-                    help='remove oversampling from the raw data.')
+parser.add_argument('--keep_os', action='store_true',
+                    help='keep readout oversampling in the raw data.')
 
 args = parser.parse_args()
 
@@ -130,8 +130,8 @@ print('> multi-band ' + str(MB) +\
       ', echo train length ' + str(N_EchoTrainLength) +\
       ', iPat ' + str(N_Accel_PE))
 
-
-if args.remove_os is True:
+REMOVE_OS = not (args.keep_os)
+if REMOVE_OS is True:
     os = 2
 else:
     os = 1
@@ -155,7 +155,7 @@ map_navi = twixtools.map_twix(twixobj_navi)
 kdat_twix = map_kdat['image']
 
 kdat_twix.flags['regrid'] = True
-kdat_twix.flags['remove_os'] = args.remove_os
+kdat_twix.flags['remove_os'] = REMOVE_OS
 kdat_twix.flags['zf_missing_lines'] = True
 kdat_twix.flags['average']['Seg'] = False
 
@@ -164,7 +164,7 @@ kdat_twix.flags['average']['Seg'] = False
 navi_twix = map_navi['image']
 
 navi_twix.flags['regrid'] = True
-navi_twix.flags['remove_os'] = args.remove_os
+navi_twix.flags['remove_os'] = REMOVE_OS
 navi_twix.flags['average']['Ida'] = False
 navi_twix.flags['average']['Seg'] = False
 navi_twix.flags['average']['Set'] = True
@@ -175,14 +175,14 @@ mapped = twixtools.map_twix(instr)
 # phase-correction
 pcor_twix = mapped[-1]['phasecorr']
 pcor_twix.flags['regrid'] = True
-pcor_twix.flags['remove_os'] = args.remove_os
+pcor_twix.flags['remove_os'] = REMOVE_OS
 pcor_twix.flags['skip_empty_lead'] = True
 pcor_twix.flags['average']['Seg'] = False
 
 # refscan
 refs_twix = mapped[-1]['refscan']
 refs_twix.flags['regrid'] = True
-refs_twix.flags['remove_os'] = args.remove_os
+refs_twix.flags['remove_os'] = REMOVE_OS
 refs_twix.flags['skip_empty_lead'] = True
 refs_twix.flags['average']['Seg'] = False
 
