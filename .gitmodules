@@ -1,0 +1,3 @@
+[submodule "/home/atuin/b143dc/b143dc15/Softwares/demo_jets_diffusion_mri_7t/JULEP"]
+	path = /home/atuin/b143dc/b143dc15/Softwares/demo_jets_diffusion_mri_7t/JULEP
+	url = git@github.com:daiep/JULEP.git
