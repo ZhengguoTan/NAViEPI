@@ -89,11 +89,13 @@ if __name__ == "__main__":
     print('> run on device: ', device)
 
     # k-space imaging echo
-    f = h5py.File(DATA_DIR / '1.7x1.7x4.0mm_kdat.h5', 'r')
+    f = h5py.File(DATA_DIR / '1.7x1.7x4.0mm_R2x3_kdat.h5', 'r')
     kdat = f['kdat'][:]
     MB = f['MB'][()]
     N_Accel_PE = f['Accel_PE'][()]
     f.close()
+
+    print('> acceleration factor: %1d (in-plane) x %1d (slice)'%(N_Accel_PE, MB))
 
     kdat = np.squeeze(kdat)  # 4 dim
     kdat = np.swapaxes(kdat, -2, -3)
@@ -104,13 +106,14 @@ if __name__ == "__main__":
     print('> kdat shape: ', kdat.shape)
 
     # coil sensitivity maps
-    f = h5py.File(DATA_DIR / '1.7x1.7x4.0mm_refs.h5', 'r')
+    f = h5py.File(DATA_DIR / '1.7x1.7x4.0mm_R2x3_refs.h5', 'r')
     refs = f['refs'][:]
     f.close()
 
     N_slices = refs.shape[1]
     _assert_shape(kdat.shape[-2:], refs.shape[-2:])
 
+    print('> estimating coils using ESPiRIT: ')
     mps = []
     for s in range(N_slices):
         print('  ' + str(s).zfill(3))
@@ -123,10 +126,6 @@ if __name__ == "__main__":
     mps = np.array(mps)
     mps = mps[[0, 2, 1], ...]  # slice reordering
     mps = np.swapaxes(mps, 0, 1)
-
-    f = h5py.File(DATA_DIR / '1.7x1.7x4.0mm_coil.h5', 'w')
-    f.create_dataset('C', data=mps)
-    f.close()
 
     print('> mps shape: ', mps.shape)
 
@@ -143,6 +142,6 @@ if __name__ == "__main__":
         img = MbSenseRecon(kdat[d], mps, sms_phase, device=device)
         R.append(img)
 
-    f = h5py.File(Path(DIR) / '1.7x1.7x4.0mm_MbSense.h5', 'w')
+    f = h5py.File(Path(DATA_DIR) / '1.7x1.7x4.0mm_R2x3_MbSense.h5', 'w')
     f.create_dataset('R', data=R)
     f.close()
