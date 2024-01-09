@@ -1,6 +1,7 @@
 import argparse
 import os
 
+CURR_DIR = os.getcwd()
 DATA_DIR = DIR = os.path.dirname(os.path.realpath(__file__))
 
 # %%
@@ -102,8 +103,12 @@ for f in files_list:
     if os.path.exists(DATA_DIR + '/' + f):
         print(f'The file {f} exists.')
     else:
-        os.system('wget -P ' + DATA_DIR + ' -q https://zenodo.org/record/10474402/files/' + f)
+        os.system('wget -P ' + DATA_DIR + ' -q https://zenodo.org/records/10474402/files/' + f)
 
 # check
+os.chdir(DATA_DIR)
+
 for f in files_list:
-    os.system('cat ' + DATA_DIR + '/md5sum.txt | grep ' + f + ' | md5sum -c --ignore-missing')
+    os.system('cat md5sum.txt | grep ' + f + ' | md5sum -c --ignore-missing')
+
+os.chdir(CURR_DIR)
