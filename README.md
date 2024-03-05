@@ -61,8 +61,8 @@ If you find the open-source codes/data useful, please cite:
     Author    = {Tan, Zhengguo and Liebig, Patrick A and Heidemann, Robin M and Laun, Frederik B and Knoll, Florian},
     Journal   = {Imaging Neuroscience},
     Year      = {2024},
-    Volume    = {},
-    Pages     = {},
-    doi       = {}
+    Volume    = {2},
+    Pages     = {1-15},
+    doi       = {10.1162/imag_a_00085}
 }
 ```
