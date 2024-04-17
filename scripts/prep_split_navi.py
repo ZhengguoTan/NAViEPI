@@ -1,6 +1,8 @@
 """
 This script converts .dat (Siemens twix format) to .h5 files.
 
+The data involves navigator acquisition.
+
 Stepwise,
 
     1. use 'twixtools' to read in .dat file;
