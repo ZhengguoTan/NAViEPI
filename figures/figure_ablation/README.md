@@ -1,6 +1,6 @@
 # The folder creates the ablation experiment figures
 
-data: 5shot_3trace_0.5mm
+* **data**: 5shot_3trace_0.5mm
 
 ### run the reconstruction
 
