@@ -9,14 +9,17 @@ import os
 DIR = os.path.dirname(os.path.realpath(__file__))
 print('> current directory: ', DIR)
 
-DAT_DIR = DIR.rsplit('/', 1)[0] + '/data'
+HOME_DIR = DIR.rsplit('/', 1)[0].rsplit('/', 1)[0]
+
+DAT_DIR = HOME_DIR + '/data'
 print('> data directory: ', DAT_DIR)
 
 # %% read in k-space data and coil
 slice_idx = 31
 
-f = h5py.File(DAT_DIR + '/4shot_020dir_1.0mm_kdat_slice_' + str(slice_idx).zfill(3) + '.h5', 'r')
+f = h5py.File(DAT_DIR + '/1.0mm_20-dir_R1x3_kdat_slices.h5', 'r')
 kdat = f['kdat'][:]
+kdat = kdat[slice_idx]
 N_band = f['MB'][()]
 N_segments = f['Segments'][()]
 N_slices = f['Slices'][()]
@@ -29,7 +32,7 @@ print('> N_band ' + str(N_band) +\
       ' N_slices ' + str(N_slices) +\
       ' Accel_PE ' + str(N_Accel_PE))
 
-f = h5py.File(DAT_DIR + '/4shot_020dir_1.0mm_coil.h5', 'r')
+f = h5py.File(DAT_DIR + '/1.0mm_20-dir_R1x3_coil.h5', 'r')
 coil = f['coil'][:]
 
 slice_mb_idx = sms.map_acquire_to_ordered_slice_idx(slice_idx, N_slices, N_band)

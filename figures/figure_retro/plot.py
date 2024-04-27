@@ -138,5 +138,5 @@ for m in range(2):
         ax[m][n].set_yticks([])
 
 plt.subplots_adjust(wspace=0, hspace=0)
-plt.savefig(DIR + '/gt.png',
+plt.savefig(DIR + '/retro.png',
             bbox_inches='tight', pad_inches=0, dpi=300)
