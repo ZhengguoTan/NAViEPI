@@ -11,13 +11,15 @@ import os
 DIR = os.path.dirname(os.path.realpath(__file__))
 print('> current directory: ', DIR)
 
-DAT_DIR = DIR.rsplit('/', 1)[0] + '/data'
+HOME_DIR = DIR.rsplit('/', 1)[0].rsplit('/', 1)[0]
+
+DAT_DIR = HOME_DIR + '/data'
 print('> data directory: ', DAT_DIR)
 
 # %%
 
 # navi
-f = h5py.File(DAT_DIR + '/5shot_3trace_0.5mm_navi_slice_000.h5', 'r')
+f = h5py.File(DAT_DIR + '/0.5x0.5x2.0mm_R3x2_navi_slice_000.h5', 'r')
 navi = f['navi'][:]
 MB = f['MB'][()]
 f.close()
@@ -33,7 +35,7 @@ print('> navi shape: ', navi.shape)
 
 
 # kdat
-f = h5py.File(DAT_DIR + '/5shot_3trace_0.5mm_kdat_slice_000.h5', 'r')
+f = h5py.File(DAT_DIR + '/0.5x0.5x2.0mm_R3x2_kdat_slice_000.h5', 'r')
 kdat = f['kdat'][:]
 N_segments = f['Segments'][()]
 N_slices = f['Slices'][()]
@@ -56,7 +58,7 @@ print('> kdat_prep shape: ', kdat_prep.shape)
 
 
 # coil
-f = h5py.File(DAT_DIR + '/5shot_3trace_0.5mm_coil.h5', 'r')
+f = h5py.File(DAT_DIR + '/0.5x0.5x2.0mm_R3x2_coil.h5', 'r')
 coil = f['coil'][:]
 f.close()
 
