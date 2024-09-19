@@ -180,13 +180,9 @@ if (N_slices_collap % 2 == 0) and (MB % 2 == 1) and (N_slices % 2 == 0):
     N_offset_2 = 0
     N_offset_1 = 0
 
-if (MB % 2 == 0) and (N_slices % 2 == 0): # even
+if (MB % 2 == 0) and (N_slices % 2 == 0) and (N_slices_collap % 2 == 0): # even
     N_offset_2 = 0
     N_offset_1 = 0
-
-if (N_slices_collap % 2) and (MB % 2 == 0) and (N_slices % 2 == 0):
-    N_offset_2 = 0
-    N_offset_1 = 1
 
 N_slices_half = N_slices_collap // 2 + N_offset_2  # interleaved slice mode
 
